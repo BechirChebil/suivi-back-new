@@ -1,6 +1,7 @@
 package tn.esprit.serviceSuivi.service.Equipe;
 
 import tn.esprit.serviceSuivi.Model.Equipe;
+import tn.esprit.serviceSuivi.Model.Etudiant;
 import tn.esprit.serviceSuivi.repositories.Equipe.IEquipeRepository;
 import org.springframework.stereotype.Service;
 
@@ -18,9 +19,10 @@ public class EquipeService implements IEquipeService {
 
     @Override
     public Equipe addEquipe(Equipe equipe) {
-        equipeRepository.save(equipe);
-        return equipe;
+        //equipeRepository.save(equipe);
+        return equipeRepository.save(equipe);
     }
+
 
     @Override
     public Equipe updateEquipe(Equipe equipeToUpdate, Equipe equipe) {

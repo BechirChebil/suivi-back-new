@@ -1,4 +1,5 @@
 package tn.esprit.serviceSuivi.Controller;
+import tn.esprit.serviceSuivi.Model.Etudiant;
 import tn.esprit.serviceSuivi.service.Equipe.IEquipeService;
 import tn.esprit.serviceSuivi.Model.Equipe;
 import org.springframework.http.HttpStatus;
@@ -13,9 +14,14 @@ public class EquipeController {
         this.equipeService = equipeService;
     }
 
+//    @PostMapping("/equipe")
+//    public ResponseEntity<?> addEquipe(@RequestBody Equipe equipe) {
+//        return new ResponseEntity<>(equipeService.addEquipe(equipe), HttpStatus.CREATED);
+//    }
     @PostMapping("/equipe")
-    public ResponseEntity<?> addEquipe(@RequestBody Equipe equipe) {
-        return new ResponseEntity<>(equipeService.addEquipe(equipe), HttpStatus.CREATED);
+    public ResponseEntity<Equipe> addEquipe(@RequestBody Equipe equipe) {
+        equipe=equipeService.addEquipe(equipe);
+        return new ResponseEntity<>(equipe, HttpStatus.CREATED);
     }
 
     @PutMapping("/equipe/{id}")
