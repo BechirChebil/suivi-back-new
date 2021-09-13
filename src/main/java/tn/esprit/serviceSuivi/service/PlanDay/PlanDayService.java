@@ -26,6 +26,9 @@ public class PlanDayService implements IPlanDayService {
 
     @Override
     public PlanDay updatePlanDay(PlanDay planDayToUpdate, PlanDay planDay) {
+    	planDayToUpdate.setDay_date(planDay.getDay_date() != null ? planDay.getDay_date() : planDayToUpdate.getDay_date());
+    	planDayToUpdate.setCreneau(planDay.getCreneau() != null ? planDay.getCreneau() : planDayToUpdate.getCreneau());
+
         planDayRepository.save(planDayToUpdate);
         return planDayToUpdate;
     }
